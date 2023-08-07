@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
-    <nav className={`navbar navbar-expand-lg bg-body-tertiary bg-${props.mode==="light"?'light':'dark'}`} style={{marginBottom: '35px'}}>
+    <nav className={`navbar navbar-expand-lg bg-body-tertiary bg-${props.mode==="light"?'light':'dark'}`}>
       <div className="container-fluid">
         <Link className={`navbar-brand text-${props.mode==="light"?'dark':'light'}`} to="/">
           {props.title}

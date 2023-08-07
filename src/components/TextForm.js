@@ -25,6 +25,7 @@ export default function TextForm(props) {
   const handleCopy = () => {
     let textarea = document.getElementById("exampleFormControlTextarea1");
     navigator.clipboard.writeText(textarea.value);
+    document.getSelection()?.removeAllRanges();
     props.showAlert("Copied To Clipboard")
   };
 
@@ -43,29 +44,33 @@ export default function TextForm(props) {
           ></textarea>
         </div>
         <button
+          disabled={text.length===0}
           type="button"
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={handleup}
         >
           Convert To UpperCase
         </button>
         <button
+          disabled={text.length===0}
           type="button"
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={handlelow}
         >
           Convert To LowerCase
         </button>
         <button
+          disabled={text.length===0}
           type="button"
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={handleclear}
         >
           Clear Text
         </button>
         <button
+          disabled={text.length===0}
           type="button"
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={handleCopy}
         >
           Copy Text
@@ -74,7 +79,7 @@ export default function TextForm(props) {
       <div className="container my-3">
         <h3 style={{color: `${props.mode==="light"?"black":"white"}`}}>Your Text Summary</h3>
         <p style={{color: `${props.mode==="light"?"black":"white"}`}}>
-          {text.split(' ').filter(function(n) { return n !== '' }).length} words and {text.length} characters are there
+          {text.split(/\s+/).filter(function(n) { return n !== '' }).length} words and {text.length} characters are there
           in the text
         </p>
       </div>
