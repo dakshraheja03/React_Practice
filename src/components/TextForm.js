@@ -74,7 +74,7 @@ export default function TextForm(props) {
       <div className="container my-3">
         <h3 style={{color: `${props.mode==="light"?"black":"white"}`}}>Your Text Summary</h3>
         <p style={{color: `${props.mode==="light"?"black":"white"}`}}>
-          {text.split(" ").length} words and {text.length} characters are there
+          {text.split(' ').filter(function(n) { return n !== '' }).length} words and {text.length} characters are there
           in the text
         </p>
       </div>
