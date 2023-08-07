@@ -10,18 +10,22 @@ export default function TextForm(props) {
   const handleup = () => {
     let uptext = text.toUpperCase();
     setText(uptext);
+    props.showAlert("Converted To Uppercase")
   };
   const handlelow = () => {
     let uptext = text.toLowerCase();
     setText(uptext);
+    props.showAlert("Converted To LowerCase")
   };
   const handleclear = () => {
     let temp = "";
     setText(temp);
+    props.showAlert("Cleared Text")
   };
   const handleCopy = () => {
     let textarea = document.getElementById("exampleFormControlTextarea1");
     navigator.clipboard.writeText(textarea.value);
+    props.showAlert("Copied To Clipboard")
   };
 
   return (
